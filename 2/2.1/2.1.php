@@ -2,7 +2,7 @@
 
 include_once "function.php";
 
-$x =-6;
+$x =9;
 
 if (isEven($x)) { //argument 
    echo "{$x} is an even number";

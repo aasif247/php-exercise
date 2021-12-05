@@ -1,5 +1,6 @@
 <?php
-header('X-XSS-Protection:0'); 
+header('X-XSS-Protection:0');
+include_once "functions.php";
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +29,14 @@ header('X-XSS-Protection:0');
                     <p>
                         <?php 
                         $fname = '';
-                        $lname = '';  
+                        $lname = '';
+                        $checked = '';
+
+                        if(isset($_REQUEST['cb1']) && $_REQUEST['cb1']==1){
+                            $checked = 'checked';
+                        }
+
+
                         ?>
 
                         <?php if(isset($_REQUEST['fname']) && !empty($_REQUEST['fname'])){ 
@@ -44,6 +52,7 @@ header('X-XSS-Protection:0');
                     <P>
                         First Name: <?php echo $fname; ?><br>
                         Last Name: <?php echo $lname; ?>
+       
                     </P>
                     
 
@@ -57,6 +66,32 @@ header('X-XSS-Protection:0');
 
                         <label for="lname">Last Name</label>
                         <input type="text" name="lname" id="lname" value ="<?php echo $lname; ?>">
+
+                        <div>
+                            <input type="checkbox" name="cb1" id="cb1" value="1" <?php echo $checked ?> >
+                            <label for="cb1" class="label-inline">Checkbox</label>
+                        </div>
+
+                        <label class="label">Select fruits</label><br/>
+
+                        <input type="checkbox" name="fruits[]" value="apple" <?php isChecked('fruits','apple')?>>
+                        <label class="label-inline">Apple</label><br/>
+
+                        <input type="checkbox" name="fruits[]" value="orange" <?php isChecked('fruits','orange')?>>
+                        <label class="label-inline">Orange</label><br/>
+
+
+                        <input type="checkbox" name="fruits[]" value="lemonade" <?php isChecked('fruits','lemonade')?>>
+                        <label class="label-inline">Lemonade</label><br/>
+
+
+                        <input type="checkbox" name="fruits[]" value="guava" <?php isChecked('fruits','guava')?>>
+                        <label class="label-inline">Guava</label><br/>
+
+
+                        
+
+
 
                         <button types="submit">Submit</button>
                     </form>

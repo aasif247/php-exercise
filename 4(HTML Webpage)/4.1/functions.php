@@ -12,3 +12,19 @@ function isFruitsChecked($value){
         echo " checked";
     }
 }
+
+function displayOptions($options, $selectedValue){
+    foreach($options as $option){
+        $option = strtolower($option); //Banana banana
+        $selected = '';
+        if(in_array($option,$selectedValue)){
+            $selected = "selected";
+        }
+        printf("<option value='%s' %s>%s</option>\n",strtolower($option),$selected,ucwords($option));
+    }
+}
+
+// actual code of this function
+
+// "<option value='%s'>%s</option>"
+// option value='mango'>Mango</option>

@@ -5,8 +5,12 @@ $allowedTypes= array(
     'image/jpeg',
 );
 if($_FILES['photo']){
-    if(in_array($_FILES['photo']['type'],$allowedTypes)!==false && $_FILES['photo']['size']<10*1024*1024){
-    move_uploaded_file($_FILES['photo']['tmp_name'],"files/".$_FILES['photo']['name']);
+    $toalFiles = count($_FILES['photo']['name']);
+    for($i=0;$i<$toalFiles;$i++){
+        if(in_array($_FILES['photo']['type'][$i],$allowedTypes)!==false && $_FILES['photo']['size'][$i]<10*1024*1024){
+            move_uploaded_file($_FILES['photo']['tmp_name'][$i],"files/".$_FILES['photo']['name'][$i]);  
+       }
+    
     }   
 }
 ?>
@@ -60,6 +64,8 @@ if($_FILES['photo']){
             <input type="text" name="lname" id="lname">
             
             <label for="photo">Photo</label>
+            <input type="file" name="photo[]" id="photo">
+            <input type="file" name="photo[]" id="photo">
             <input type="file" name="photo[]" id="photo">
 
             <button type='submit'>Submit</button>

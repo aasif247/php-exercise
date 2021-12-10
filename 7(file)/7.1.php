@@ -1,5 +1,5 @@
 <?php
-$filename = "E:/Xampp/htdocs/php-exercise/7(file)/data/file.txt";
+$filename = "E:/Xampp/htdocs/php-exercise/7(file)/data/file1.txt";
 if(is_readable($filename)){
 
 $fp = fopen($filename,'r');

@@ -1,25 +1,33 @@
 <?php
-
 class Human{
     public $name;
+    public $age;
 
-    function __construct($personName){
-        echo "New Human Object is created\n";
-        $this->name = $personName;
+    public function __Construct($personName, $personAge=0){
+
+        $this ->name = $personName; 
+        $this ->age = $personAge; 
+
     }
-
     function sayHi(){
-        echo "Asif\n";
+        echo "Hello\n";
         $this->sayName();
     }
 
     function sayName(){
-        echo "My Name is {$this->name}\n";
+        echo "My name is {$this->name}\n";
+        
+        if ($this->age){
+            echo "I am {$this->age} years old\n";
+        }else{
+            echo "I don't know how old i am\n";
+        }
     }
 }
 
-$h1 = new Human("Asif");
-$h2 = new Human("Arif");
+$h1 = new Human("Asif", "22");
+$h2 = new Human("Nafis");
+$h3 = new Human("Fahim","25");
 $h1->sayHi();
 $h2->sayHi();
-//$h1->name="Asif\n";
+$h3->sayHi();

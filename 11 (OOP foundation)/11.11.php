@@ -6,8 +6,9 @@ class Shapes{
     function __construct(){
         $this->shapes = array();
     }
-
-    function addShapes(Shape $shape){
+    
+    // here Shape is method signature so no others type data can't pass here , only Shape type data can pass here
+    function addShapes(Shape $shape){ 
         array_push($this->shapes, $shape);
     }
 
